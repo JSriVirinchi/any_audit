@@ -1,3 +1,9 @@
-<h1>Any audit</h1>
+<h1>Landing page of Any Audit</h1>
 
-<%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
+<%if @logged_in == false%>
+	<%= link_to 'login', new_user_session_path %>
+	<%= link_to 'Sign Up', new_user_registration_path %>
+<%else%>
+	<p>You are already logged in. PLease go to your dashboard</p>
+	<%= link_to 'Go to Home', root_path %>	
+<%end%>	
